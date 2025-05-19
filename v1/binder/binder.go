@@ -1,4 +1,4 @@
-package flagbinder
+package binder
 
 import (
 	"encoding/json"

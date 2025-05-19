@@ -1,5 +1,5 @@
 // File: handlers.go
-package flagbinder
+package binder
 
 import (
 	"fmt"

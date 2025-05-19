@@ -37,7 +37,7 @@ import (
   "fmt"
   "time"
 
-  "github.com/mirkobrombin/go-struct-flags/flagbinder"
+  "github.com/mirkobrombin/go-struct-flags/v1/binder"
 )
 
 type Config struct {
@@ -49,7 +49,7 @@ type Config struct {
 
 func main() {
   var cfg Config
-  binder, err := flagbinder.NewBinder(&cfg, "./_backups", true)
+  binder, err := binder.NewBinder(&cfg, "./_backups", true)
   if err != nil {
     panic(err)
   }

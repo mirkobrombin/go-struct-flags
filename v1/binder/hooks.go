@@ -1,4 +1,4 @@
-package flagbinder
+package binder
 
 // newHooks creates an empty hooks registry.
 func newHooks() *hooks {

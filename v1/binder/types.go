@@ -1,4 +1,4 @@
-package flagbinder
+package binder
 
 type tagMeta struct {
 	Name    string
