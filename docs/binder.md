@@ -5,7 +5,7 @@ The `binder` package is the core engine of **Go Struct Flags**. While `structfla
 ## Installation
 
 ```bash
-import "github.com/mirkobrombin/go-struct-flags/pkg/binder"
+import "github.com/mirkobrombin/go-struct-flags/v2/pkg/binder"
 ```
 
 ## Basic Usage
