@@ -1,25 +1,33 @@
 # Struct Tags
 
-Every field you want to bind needs a `flag:"<name>,<type>[,<choices>]"` tag.
+Go Struct Flags uses the `flag` tag to map struct fields to command-line flags.
 
-- `<name>`: the key you’ll pass to `Run()`.  
-- `<type>`: one of `bool`, `int`, `duration`, `enum`, `strings`.  
-- `<choices>` (only for `enum`): pipe-separated allowed values.
+## Tag Format
 
-Example:
+The tag values are separated by commas and use the `key:value` format.
 
 ```go
-type Opts struct {
-  Mode   string   `flag:"mode,enum,dev|prod"`
-  Extras []string `flag:"extras,strings"`
+type Options struct {
+    Verbose bool `flag:"short:v, long:verbose, name:Enable Verbose Output, default:false"`
 }
 ```
-The above struct will accept:
 
-```go
-binder.Run("mode", []string{"dev"})
-binder.Run("extras", []string{"foo", "bar"})
-```
+## Available Keys
 
-The `Mode` field will only accept `dev` or `prod`, while `Extras` can accept any number of strings.
-The `Run()` method will return an error if the value is not valid for the field type or if the value is not in the allowed choices for `enum` types.
+| Key | Description | Example |
+|-----|-------------|---------|
+| `short` | The short name for the flag (e.g., `-v`). | `short:v` |
+| `long` | The long name for the flag (e.g., `--verbose`). Defaults to the field name in lowercase. | `long:verbose` |
+| `name` | The description/usage text for the flag. | `name:Enable verbose output` |
+| `default` | The default value for the flag. | `default:json` |
+
+## Supported Types
+
+The library supports the following Go types:
+- `bool`
+- `string`
+- `int`
+- `int64`
+- `uint`
+- `uint64`
+- `float64`
